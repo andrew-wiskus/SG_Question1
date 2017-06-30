@@ -7,6 +7,9 @@ public class DataSet : MonoBehaviour
 {
 	private List<BirthToDeathDate> structured_dataset = new List<BirthToDeathDate>();
 
+	public int startYear { get { return RawData.startYear; } }
+	public int endYear { get { return RawData.endYear; } }
+
 	private List<BirthToDeathDate> build_data_set()
 	{
 		// Get raw unstructured list of int values between 1900 and 2000;

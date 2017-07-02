@@ -10,6 +10,7 @@ public class GraphBar : MonoBehaviour
 	private int m_year;
 	private int m_population;
 	private GameObject m_indicator_object;
+	private GraphController m_controller;
 
 	public int population { get { return m_population; } }
 	public int year { get { return m_year; } }
@@ -24,8 +25,9 @@ public class GraphBar : MonoBehaviour
 	{
 		SetBarAsActive();
 	}
-	public void SetIndicatorObject(GameObject indicator)
+	public void SetIndicatorObject(GraphController controller, GameObject indicator)
 	{
+		m_controller = controller;
 		m_indicator_object = indicator;
 	}
 	public void SetBarColor(Color color)
@@ -42,5 +44,6 @@ public class GraphBar : MonoBehaviour
 	public void SetBarAsActive()
 	{
 		m_indicator_object.GetComponent<BarIndicator>().Set(this.transform.position.x, m_year, m_population);
+		m_controller.SetTextForNewSelectedYear(m_year);
 	}
 }

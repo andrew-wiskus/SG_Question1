@@ -10,7 +10,8 @@ public class GraphController : MonoBehaviour
 	[SerializeField] List<Color> m_graph_colors;
 	[SerializeField] GameObject m_indicator;
 	[SerializeField] Text m_results_text;
-
+	[SerializeField] Text m_left_side_results_output;
+	[SerializeField] Text m_right_side_results_output;
 	private DataSet m_dataset = new DataSet();
 	private List<BirthToEndDate> m_graph_data;
 	private List<GameObject> m_graph_bars = new List<GameObject>();
@@ -22,6 +23,7 @@ public class GraphController : MonoBehaviour
 		set_graph_data();
 		create_graph();
 		set_results_text();
+
 		//This method has to be in a coroutine because we need to wait for the bars position (being controller by horizontal layout group) to be set onto the canvas.
 		StartCoroutine(set_initial_bar());
 	}
@@ -79,7 +81,7 @@ public class GraphController : MonoBehaviour
 	{
 		GraphBar graph_bar = new_bar.GetComponent<GraphBar>();
 		graph_bar.SetBarColor(m_graph_colors[bar_color_index]);
-		graph_bar.SetIndicatorObject(m_indicator);
+		graph_bar.SetIndicatorObject(this, m_indicator);
 		graph_bar.SetBarData(current_year, people_alive);
 	}
 
@@ -111,8 +113,16 @@ public class GraphController : MonoBehaviour
 		string year_string = years.Count == 1 ? years[0].ToString() : get_comma_seperated_year_string(years);
 		string results_string = "In " + year_string + " there was the most people alive with " + amount_of_people_alive + " living";
 		m_results_text.text = results_string;
+
+		m_left_side_results_output.text = GraphStatistics.GetStringForAllYears(GraphStatistics.leftColumn, years[0]);
+		m_right_side_results_output.text = GraphStatistics.GetStringForAllYears(GraphStatistics.rightColumn, years[0]);
 	}
 
+	public void SetTextForNewSelectedYear(int year)
+	{
+		m_left_side_results_output.text = GraphStatistics.GetStringForAllYears(GraphStatistics.leftColumn, year);
+		m_right_side_results_output.text = GraphStatistics.GetStringForAllYears(GraphStatistics.rightColumn, year);
+	}
 	private string get_comma_seperated_year_string(List<int> years)
 	{
 		string result = years[0].ToString();

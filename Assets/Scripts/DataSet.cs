@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class DataSet : MonoBehaviour
+public class DataSet
 {
-	private List<BirthToDeathDate> structured_dataset = new List<BirthToDeathDate>();
+	private List<BirthToEndDate> structured_dataset = new List<BirthToEndDate>();
 
 	public int startYear { get { return RawData.startYear; } }
 	public int endYear { get { return RawData.endYear; } }
 
-	private List<BirthToDeathDate> build_data_set()
+	private List<BirthToEndDate> build_data_set()
 	{
 		// Get raw unstructured list of int values between 1900 and 2000;
 		List<int> random_year_list = RawData.RandomYearList;
@@ -21,13 +21,13 @@ public class DataSet : MonoBehaviour
 		Debug.Assert(odd_index_values.Count == even_index_values.Count, "The random_year_list data count isn't even");
 
 		// Create structured dataset using (even[i],odd[i]) where the lower value = birth year && higher value = end year;
-		List<BirthToDeathDate> data_set = new List<BirthToDeathDate>();
+		List<BirthToEndDate> data_set = new List<BirthToEndDate>();
 
 		for (int i = 0; i < odd_index_values.Count; i++) {
 			int odd = odd_index_values[i];
 			int even = even_index_values[i];
 
-			BirthToDeathDate data_entry = new BirthToDeathDate();
+			BirthToEndDate data_entry = new BirthToEndDate();
 
 			data_entry.birthYear = odd < even ? odd : even;
 			data_entry.endYear = odd > even ? odd : even;
@@ -40,7 +40,7 @@ public class DataSet : MonoBehaviour
 		return data_set;
 	}
 
-	public List<BirthToDeathDate> GetListOfBirthToDeathDates()
+	public List<BirthToEndDate> GetListOfBirthToEndDates()
 	{
 		if (structured_dataset.Count == 0) {
 			structured_dataset = build_data_set();
@@ -50,7 +50,7 @@ public class DataSet : MonoBehaviour
 	}
 }
 
-public struct BirthToDeathDate
+public struct BirthToEndDate
 {
 	public int birthYear;
 	public int endYear;

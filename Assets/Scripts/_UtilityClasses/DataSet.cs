@@ -18,7 +18,7 @@ public class DataSet
 		// Seperate list by even/odd indexes
 		List<int> odd_index_values = random_year_list.Where((value, index) => index % 2 != 0).ToList();
 		List<int> even_index_values = random_year_list.Where((value, index) => index % 2 == 0).ToList();
-		Debug.Assert(odd_index_values.Count == even_index_values.Count, "The random_year_list data count isn't even");
+		Debug.Assert(odd_index_values.Count == even_index_values.Count, "BAD DATA!: RawData.RandomYearList.Count isn't even!");
 
 		// Create structured dataset using (even[i],odd[i]) where the lower value = birth year && higher value = end year;
 		List<BirthToEndDate> data_set = new List<BirthToEndDate>();
@@ -48,10 +48,4 @@ public class DataSet
 
 		return structured_dataset;
 	}
-}
-
-public struct BirthToEndDate
-{
-	public int birthYear;
-	public int endYear;
 }

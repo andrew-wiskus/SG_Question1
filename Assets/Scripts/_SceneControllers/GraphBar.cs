@@ -8,8 +8,11 @@ public class GraphBar : MonoBehaviour
 	[SerializeField] private Text m_bar_text;
 	private Image m_bar_image;
 	private int m_year;
-	private int m_people_alive;
+	private int m_population;
 	private GameObject m_indicator_object;
+
+	public int population { get { return m_population; } }
+	public int year { get { return m_year; } }
 
 	void OnEnable()
 	{
@@ -33,11 +36,11 @@ public class GraphBar : MonoBehaviour
 	public void SetBarData(int year, int people_alive)
 	{
 		m_year = year;
-		m_people_alive = people_alive;
+		m_population = people_alive;
 	}
 
 	public void SetBarAsActive()
 	{
-		m_indicator_object.GetComponent<BarIndicator>().Set(this.transform.position.x, m_year, m_people_alive);
+		m_indicator_object.GetComponent<BarIndicator>().Set(this.transform.position.x, m_year, m_population);
 	}
 }

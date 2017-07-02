@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,20 +9,6 @@ public class GraphStatistics
 
 	private static List<BirthToEndDate> m_dataset;
 	private static List<PopulationForYear> m_population_dataset;
-
-	public static void SetGraphData(List<BirthToEndDate> dataset) {
-		Debug.Assert(m_dataset == null, "Why are you setting the graph data twice?");
-		m_dataset = dataset;
-		set_graph_statistics();
-
-	}
-
-	public static int GetAmountOfPeopleAliveDuringYear(int current_year)
-	{
-		int people_alive = m_dataset.Where(data_entry => data_entry.birthYear <= current_year && data_entry.endYear > current_year).ToList().Count;
-
-		return people_alive;
-	}
 
 	private static List<PopulationForYear> set_population_dataset()
 	{
@@ -47,9 +32,18 @@ public class GraphStatistics
 		yearsWithMostPeopleAlive = m_population_dataset.Where( data_entry => data_entry.population == mostPeopleAliveAtOnce ).Select( data_entry => data_entry.year).ToList();
 	}
 
-	public struct PopulationForYear {
-		public int year;
-		public int population;
+	public static void SetGraphData(List<BirthToEndDate> dataset) {
+		Debug.Assert(m_dataset == null, "Why are you setting the graph data twice?");
+		m_dataset = dataset;
+		set_graph_statistics();
+
+	}
+
+	public static int GetAmountOfPeopleAliveDuringYear(int current_year)
+	{
+		int people_alive = m_dataset.Where(data_entry => data_entry.birthYear <= current_year && data_entry.endYear > current_year).ToList().Count;
+
+		return people_alive;
 	}
 }
 

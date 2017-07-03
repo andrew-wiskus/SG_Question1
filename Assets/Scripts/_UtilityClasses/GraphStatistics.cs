@@ -48,7 +48,7 @@ public class GraphStatistics
 			max = m_population_dataset.Count / 2;
 		} else if(column == rightColumn) {
 			index = m_population_dataset.Count / 2;
-			max = m_population_dataset.Count;
+			max = m_population_dataset.Count - 1;
 		} else {
 			Debug.Assert(false, "You need to use the pre-defined column identifiers in GetStringForAllYears(string column). Left: GraphStatistics.leftColumn, Right: GraphStatistics.rightColumn");
 			return "";

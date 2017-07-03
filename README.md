@@ -4,13 +4,13 @@
 
 ## Dataset
 
-####-1. Created a list of 500 random numbers between 1900-2000
-####-2. Split them into pairs (even,odd).
-####-3. In those pairs the highest number was the "end_date" and the lower was the "birth_date".
+1. Created a list of 500 random numbers between 1900-2000<br />
+2. Split them into pairs (even,odd).<br />
+3. In those pairs the highest number was the "end_date" and the lower was the "birth_date".<br />
 
-### See:
-####Scripts/Data/RawData.cs
-####Scripts/Data/DataSet.cs
+### See files:
+Scripts/Data/RawData.cs<br />
+Scripts/Data/DataSet.cs<br />
 
 
 ## Screenshots of build:

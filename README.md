@@ -1,6 +1,6 @@
-#SG Code Challenge: Question 1
-# Drew Wiskus
-#Hosted On: https://andrewwiskus.github.io/SG_Question1_Hosted
+# SG Code Challenge: Question 1
+## Drew Wiskus
+Hosted On: https://andrewwiskus.github.io/SG_Question1_Hosted
 
 ## Dataset
 
@@ -15,3 +15,7 @@ Scripts/Data/DataSet.cs<br />
 
 ## Screenshots of build:
 ![alt text](https://raw.githubusercontent.com/andrewwiskus/SG_Question1/master/OutputImages/output_img1.png)
+
+### Clicking on a graph bar will show that years data.
+![alt text](https://raw.githubusercontent.com/andrewwiskus/SG_Question1/master/OutputImages/output_img2.png)
+![alt text](https://raw.githubusercontent.com/andrewwiskus/SG_Question1/master/OutputImages/output_img3.png)

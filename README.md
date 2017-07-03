@@ -19,3 +19,6 @@ Scripts/Data/DataSet.cs<br />
 ### Clicking on a graph bar will show that years data.
 ![alt text](https://raw.githubusercontent.com/andrewwiskus/SG_Question1/master/OutputImages/output_img2.png)
 ![alt text](https://raw.githubusercontent.com/andrewwiskus/SG_Question1/master/OutputImages/output_img3.png)
+
+### The graph can be easily altered by changing properties in RawData.cs to show different ranges/sets:
+![alt text](https://raw.githubusercontent.com/andrewwiskus/SG_Question1/master/OutputImages/output_img4.png)

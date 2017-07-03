@@ -9,8 +9,8 @@ Hosted On: https://andrewwiskus.github.io/SG_Question1_Hosted
 3. In those pairs the highest number was the "end_date" and the lower was the "birth_date".<br />
 
 ### See files:
-Scripts/Data/RawData.cs<br />
-Scripts/Data/DataSet.cs<br />
+Assets/Scripts/Data/RawData.cs<br />
+Assets/Scripts/Data/DataSet.cs<br />
 
 
 ## Screenshots of build:
